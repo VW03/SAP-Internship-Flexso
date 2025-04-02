@@ -64,4 +64,18 @@
 .header-github-button:hover {
     background-color: var(--secondary);
 }
+
+.theme-toggle-btn {
+    padding: 8px 16px;
+    background-color: var(--primary);
+    color: var(--text);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--secondary);
+}
 /* Header */
