@@ -7,22 +7,23 @@
 :root[data-theme="dark"] {
     --text: #d9e1e8;
     --background: #0a1218;
-    --primary: #7f39e9;
+    --primary: #8b4ee6;
     --secondary: #684a9c;
     --tertiary: #1d1c29;
     --quaternary: #2c2a3a;
-    --accent: #ae8ad2;
+    --accent: #aa8ad2;
+    --accent2: #d3ccf1;
 }
 
 :root[data-theme="light"] {
     --text: #0b1013;
     --background: #eff7fb;
-    --primary: #85d0ff;
-    --primary-a: #45b8ff;
+    --primary: #a685ff;
     --secondary: #b6abce;
     --tertiary: #e8eff3;
     --quaternary: #dedfed;
     --accent: #ac8fbd;
+    --accent2: #a685ff;
 }
 
 :root {
@@ -129,7 +130,6 @@ body {
 }
 
 .main-section {
-    /*margin-bottom: 20px;*/
     padding: 10px;
     margin: 16px;
     background: var(--quaternary);
@@ -148,7 +148,7 @@ body {
 }
 
 .main-section a {
-    color: var(--primary-a);
+    color: var(--accent2);
     text-decoration: none;
 }
 
@@ -189,14 +189,6 @@ body {
     border: 1px solid #dddddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.user-picture {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    background-color: var(--accent);
 }
 
 .main-founder-name {
