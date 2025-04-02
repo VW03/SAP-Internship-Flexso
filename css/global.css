@@ -119,7 +119,7 @@ body {
 /* SetUp Grid */
 
 /* Main */
-.main {
+.big-section {
     background-color: var(--tertiary);
     color: var(--text);
     border-radius: var(--radius);
