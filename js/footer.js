@@ -1,6 +1,6 @@
 /**********************************/
-/* @since 01/01/2025              */
-/* @author K10s Open Source Team  */
+/* @since 31/03/2025              */
+/* @author Vera Wise              */
 /**********************************/
 
 // Set the current year in the footer

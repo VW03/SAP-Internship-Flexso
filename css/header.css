@@ -1,6 +1,6 @@
 /**********************************/
-/* @since 01/01/2025              */
-/* @author K10s Open Source Team  */
+/* @since 31/03/2025              */
+/* @author Vera Wise              */
 /**********************************/
 
 @import url('/css/global.css');
@@ -20,7 +20,7 @@
 .header .header-logo img {
     height: 100px;
     width: auto;
-    margin: 0px;
+    margin: 0;
 }
 
 .header .header-company-name {
@@ -35,7 +35,7 @@
 
 .header-github-container {
     background-color: var(--primary);
-    padding: 0px;
+    padding: 0;
     border-radius: var(--radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;

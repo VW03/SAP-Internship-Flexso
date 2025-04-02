@@ -1,6 +1,6 @@
 /**********************************/
-/* @since 01/01/2025              */
-/* @author K10s Open Source Team  */
+/* @since 31/03/2025              */
+/* @author Vera Wise              */
 /**********************************/
 
 /* Global Styles */
@@ -47,7 +47,7 @@
 /* Global Body */
 body {
     background-color: var(--secondary);
-    font-family: 'Inter', Arial;
+    font-family: 'Inter', Arial, serif;
 }
 /* Global Body */
 
@@ -129,7 +129,7 @@ body {
 }
 
 .main-section {
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     padding: 10px;
     margin: 16px;
     background: var(--quaternary);
