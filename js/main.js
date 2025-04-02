@@ -27,6 +27,6 @@ function loadExternalContent(DivId, url) {
 
 // Load external content
 document.addEventListener('DOMContentLoaded', function() {
-    loadExternalContent("header", "/includes/header.html");
-    loadExternalContent("footer", "/includes/footer.html");
+    loadExternalContent("header", "/SAP-Internship-Flexso/includes/header.html");
+    loadExternalContent("footer", "/SAP-Internship-Flexso/includes/footer.html");
 });
