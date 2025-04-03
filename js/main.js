@@ -30,3 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
     loadExternalContent("header", "/SAP-Internship-Flexso/includes/header.html");
     loadExternalContent("footer", "/SAP-Internship-Flexso/includes/footer.html");
 });
+
+function showPopup(imgElement) {
+    const popup = document.getElementById("imagePopup");
+    const popupImg = document.getElementById("popupImage");
+    popupImg.src = imgElement.src; // Set the popup image source to the clicked image
+    popup.style.display = "flex";  // Show the popup
+}
+
+function hidePopup() {
+    const popup = document.getElementById("imagePopup");
+    popup.style.display = "none";  // Hide the popup
+}

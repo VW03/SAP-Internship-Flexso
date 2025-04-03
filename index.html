@@ -13,6 +13,7 @@
     <body class="body">
         <header class="header" id="header"></header>
         <main class="big-section">
+
             <section class="main-section">
                 <h2>About this blog</h2>
                 <p>I am doing my internship at Flexso, it is a Hackathon project that I will be writing in SAPUI5 and CAPIRE!</p>
@@ -20,17 +21,22 @@
                 <p>There will be 8 weeks, and 5 entries per week.</p>
             </section>
             <section class="main-section">
+                <div id="imagePopup" class="popup">
+                    <span class="close-btn" onclick="hidePopup()">&times;</span>
+                    <img id="popupImage" class="popup-content" src="" alt="Full-screen image">
+                </div>
+
                 <h2>Week 1</h2>
                 <h3>Day 1 - 31/03/2025</h3>
                 <p>
 <!--                    <img class="user-picture picture-article" src="/SAP-Internship-Flexso/images/vw.png" alt="selfie">-->
                 Today we had an introduction about Flexso itself. It was very broad because we got it together with 2 people that start working at Flexso. Then, in the afternoon we got our gitlab accounts and I started to setup the frontend. I had difficulties making it from scratch so I followed a Hello World tutorial.</p>
                 <h3>Day 2 - 01/04/2025</h3>
-                <p> <img class="user-picture picture-article" src="/SAP-Internship-Flexso/images/d2_backend.png" alt="backend v0.1">
+                <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/d2_backend.png" alt="backend v0.1"></span>
                     This morning I wanted to have the backend setup, because at 1pm we had a meeting with one of our facilitator. That went quite easy because the CAP has very good documentation. The only problem was downloading the library to use CAP, I got errors on the repository, but with some AI it was resolved. At the meeting at 1pm I got some feedback in how they use SAP themes instead of custom css and a tip to use the special CAP cuid (a variant on UUID).
 Afterwards I watched some tutorials on CAP and SAP, made some issues and started working on the wireframes. Since we got some more info at our 1pm meeting on the scope.</p>
                 <h3>Day 3 - 02/04/2025</h3>
-                <p> <img class="user-picture picture-article" src="/SAP-Internship-Flexso/images/d3_theme.png" alt="theme">
+                <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/d3_theme.png" alt="theme"></span>
                     Today I have finished the 3 sprints backlog, linking issues too. There was a little problem in that our gitlab accounts are not Premium, so we don't have weights or burndowncharts. But to still somehow have weights, because I think it's important, I added labels with a weight from 1 to 5. Then I finished the wireframes and got to work on the theme our facilitator mentioned yesterday. I used the fiori theme for our project, it was very easy to setup!
 Then I made the domain model and added a merge request template. Then, together with Dordje we did the sprint planning (assignment of weightsa and in what sprint we'll do what).</p>
                 <h3>Day 4 - 03/04/2025</h3>
