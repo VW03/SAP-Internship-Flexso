@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
     loadExternalContent("header", "/SAP-Internship-Flexso/includes/header.html");
     loadExternalContent("footer", "/SAP-Internship-Flexso/includes/footer.html");
     loadExternalContent("sprint1", "/SAP-Internship-Flexso/includes/sprint1.html");
+    loadExternalContent("sprint2", "/SAP-Internship-Flexso/includes/sprint2.html");
+    loadExternalContent("sprint3", "/SAP-Internship-Flexso/includes/sprint3.html");
 });
 
 function showPopup(imgElement) {
