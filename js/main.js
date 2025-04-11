@@ -48,7 +48,7 @@ function hidePopup() {
 }
 
 function initializeCollapsibleSections() {
-    const sections = document.querySelectorAll('.main-section');
+    const sections = document.querySelectorAll('.main-section-week');
     sections.forEach(section => {
         const h2 = section.querySelector('h2');
         if (h2) {
@@ -60,7 +60,7 @@ function initializeCollapsibleSections() {
 }
 
 function toggleSection(event) {
-    const section = event.target.closest('.main-section');
+    const section = event.target.closest('.main-section-week');
     if (section) {
         section.classList.toggle('collapsed');
     }
