@@ -18,6 +18,7 @@ function loadExternalContent(DivId, url) {
                     script.text = scripts[i].text;
                     document.body.appendChild(script);
                 }
+                initializeCollapsibleSections();
             }
         }
     }
@@ -44,4 +45,23 @@ function showPopup(imgElement) {
 function hidePopup() {
     const popup = document.getElementById("imagePopup");
     popup.style.display = "none";  // Hide the popup
+}
+
+function initializeCollapsibleSections() {
+    const sections = document.querySelectorAll('.main-section');
+    sections.forEach(section => {
+        const h2 = section.querySelector('h2');
+        if (h2) {
+            h2.removeEventListener('click', toggleSection);
+            h2.addEventListener('click', toggleSection);
+            section.classList.add('collapsed');
+        }
+    });
+}
+
+function toggleSection(event) {
+    const section = event.target.closest('.main-section');
+    if (section) {
+        section.classList.toggle('collapsed');
+    }
 }

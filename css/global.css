@@ -156,6 +156,27 @@ body {
     color: var(--accent);
 }
 
+.main-section h2 {
+    cursor: pointer;
+    position: relative;
+    padding-left: 20px;
+}
+
+.main-section h2::before {
+    content: "−";
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+.main-section.collapsed h2::before {
+    content: "+";
+}
+
+.main-section.collapsed > *:not(h2) {
+    display: none;
+}
+
 .main-section video {
     display: block;
     border: 5px solid var(--primary);
