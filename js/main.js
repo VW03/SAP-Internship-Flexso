@@ -54,7 +54,9 @@ function initializeCollapsibleSections() {
         if (h2) {
             h2.removeEventListener('click', toggleSection);
             h2.addEventListener('click', toggleSection);
-            section.classList.add('collapsed');
+            if (!section.classList.contains('current-week')) {
+                section.classList.add('collapsed');
+            }
         }
     });
 }

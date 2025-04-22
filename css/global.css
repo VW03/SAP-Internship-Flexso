@@ -177,14 +177,6 @@ body {
     display: none;
 }
 
-.main-section-week.current-week > *:not(h2) {
-    display: block;
-}
-
-.main-section-week.current-week h2::before {
-    content: "−";
-}
-
 .main-section video {
     display: block;
     border: 5px solid var(--primary);
