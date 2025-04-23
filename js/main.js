@@ -39,6 +39,9 @@ function showPopup(imgElement) {
     const popup = document.getElementById("imagePopup");
     const popupImg = document.getElementById("popupImage");
     popupImg.src = imgElement.src; // Set the popup image source to the clicked image
+    popupImg.style.maxWidth = "90%";
+    popupImg.style.maxHeight = "90%";
+    popupImg.style.margin = "20px";
     popup.style.display = "flex";  // Show the popup
 }
 
