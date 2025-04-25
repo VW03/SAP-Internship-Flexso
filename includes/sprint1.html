@@ -19,7 +19,11 @@ I also made sure that the filtering happens in the backend and not the frontend.
 I don't really feel at home yet in this language, the things I want to do require some research to see if I even can do that. Thankfully in the afternoon I found how I could get the teams too, not via the tutorial way (because the links to where its located didn't match), but it's something I've kinda done in Java. So that was problem 1 done, visually I'm not really happy, but it gets the job done. I then added a create team button and decided to leave the final add user to team functionality to tomorrow. That went well, making dialog windows and create functionality is now easy in SAP. And I like how I'm showing the hackathon name above, I think it's user-friendly!
     </p>
     <h3>Day 5 - 25/04/2025</h3>
-    <p></p>
+    <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w2d4_adduser" alt="w2d4_adduser"></span>
+Today I am starting to get SAP and CAP. I made a dialog fragment for the add user, struggled a bit to get the 'AvailableParticipants' from a list made in the backend. Because there will be many participants, so I needed to filter them already in the backend. So they're not in a team yet and are not a facilitator. And the problems came from the team_ID, that isn't defined in the entity (only the relationship to Teams). But in the end it was pretty simple and the filtering works!
+Then I was busy with saving the user correctly, which worked in the end. I also cleaned up some code and made some helper files, because my teams controller was getting big with 2 whole fragments with each 3 methods (create,save,cancel). Then I prepared my materials to pitch my unique questions ideas (big zip assignment, API endpoints like weather/planets, a base question with different params like these inputs/outputs and these algoritms that can mix and match - the only problem here is that I don't know yet how to validate this, because there will be thousands of different questions). And all 3 were accepted, we will just have to see how the validation will go, and monday talk with others from Flexso to hear their input!
+After this meeting I went to make a few fixes and started delete functionality.
+    </p>
 </section>
 
 <section class="main-section main-section-week">
