@@ -6,9 +6,16 @@
     Then we also had a meeting in the afternoon with Stijn where we gave a little demo of what we have. And we got some feedback on that. Then I went on to further work on my hackathon page. I also had to do a backend rework to show the desired structure of one big question with smaller sub-questions that you can answer.
   </p>
   <h3>Day 2 - 06/05/2025</h3>
-  <p></p>
+    <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w4d2_hackathon.png" alt="w4d2_hackathon"></span>
+Today I started on getting the get working. Before it didn't work because I used dataRequested instead of oBinding?.getContexts(). I think it's a difference between the o2 and o4 documentation. Then I made the page a bit prettier (rounded corners, spacing between questions, ..). Then I went on to do the validation. For now it's the easy variant that just checks if the input answer is the same as the saved correct answer. And of course I also added pretty green/red glowing border on submit.
+Then I also made the buttons to go to the previous/next challenge a bit prettier/bigger. Then we had our feedback on the UX. It was more conseptual feedback than UI feedback. Because the one we had a meeting with, Nicolas, had already done 11 hackathons! So his input was really valuable. We also discussed how we could do our deployment our user management in there. I am glad it seems easier than we thought as Dordje was able to set up an BTP account for the deployment without trouble under Nicolas' guidance!
+Then I reworked the backend yet agian to include timestamps and discussed with Dordje how we will show the time per question per team. Then I realised I was giving the wrong challenge ID when I was saving an answer, so I fixed that. And at the end of the day I also saw that I wasn't saving the teamAnswer ID in the question table on the save of an answer. Which is obvious as I only did a call to the Answers table. But I left that for tomorrow.
+    </p>
   <h3>Day 3 - 07/05/2025</h3>
-  <p></p>
+      <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w4d3_hackathon.png" alt="w4d3_hackathon"></span>
+Today I started on doing that call to the Questions table to change the teamAnswer ID to the ID of the created answer. That wasn't that easy, as I had to wait until that answer was saved, and then get that answer (because the IDs are created automatically on create). But after this my page was finally kinda done! After some cleanup I went to merge issues of Dordje. And then he merged mine and I only had a few merge conflicts that shouldn't even have been conflicts because it was literally just some css that can be put under each other and the manifest file that had 2 routes. I'm really glad we have so little conflicts, maybe it's because we're a small team and devide our issues really well?
+Then I tested many different ways to show the navigation to challenges (we need an overview so just the two previous/next buttons aren't enough). But in the end I settled on SideNavigation and stars that are either filled or not based on wether the challenge is completed or not. I also made it collapsable so it's not in the way when its not needed.
+      </p>
   <h3>Day 4 - 08/05/2025</h3>
   <p></p>
   <h3>Day 5 - 09/05/2025</h3>
