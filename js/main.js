@@ -50,6 +50,21 @@ function hidePopup() {
     popup.style.display = "none";  // Hide the popup
 }
 
+function showVideoPopup(videoElement) {
+    const popup = document.getElementById("videoPopup");
+    const popupVideo = document.getElementById("popupVideo");
+
+    popupVideo.src = videoElement.src; 
+    popupVideo.controls = true;
+    popupVideo.autoplay = true;
+    popupVideo.style.maxWidth = "90%";
+    popupVideo.style.maxHeight = "90%";
+    popupVideo.style.margin = "20px";
+
+    popup.style.display = "flex";  // Show the popup
+}
+
+
 function initializeCollapsibleSections() {
     const sections = document.querySelectorAll('.main-section-week');
     sections.forEach(section => {
