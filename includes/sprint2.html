@@ -1,4 +1,4 @@
-<section class="main-section main-section-week current-week">
+<section class="main-section main-section-week">
   <h2>Week 4</h2>
   <h3>Day 1 - 05/05/2025</h3>
   <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w4d1_hackathon.png" alt="w4d1_hackathon"></span>
@@ -34,7 +34,7 @@ Afterwards we had a demo with our 2 coaches, Stijn and Eva. We showed our app an
   </p>
 </section>
 
-<section class="main-section main-section-week">
+<section class="main-section main-section-week current-week">
   <h2>Week 5</h2>
   <h3>Day 1 - 12/05/2025</h3>
   <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w5d1_structure.png" alt="w5d1_structure"></span>
@@ -45,7 +45,13 @@ Then I started on writing typescript as intended, using interfaces. I rewrote ev
 Which is not user friendly of course. And I had to look a bit for this because per documentation you should use 'autofocus=false' but that worked for one second and then it showed the suggestions again. So I got creative and declared in the parent tag (the Dialog tag) that initialFocus="cancelButton"
 and now it focuses there (which isn't really visible anyway) and the search bar still works completly! </p>
   <h3>Day 2 - 13/05/2025</h3>
-  <p></p>
+  <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w5d2_pink.png" alt="w5d2_pink"></span>
+Today I continued working on refactoring the whole day! I got stuck on making sure the challenges and questions update correctly when I complete a challenge/question. Because after I made it all work, my controller was way too long, so I split it up. And that destroyed the working links. So I had to re-do many things. But in the end it got better as I made many little helper functions that check if challenge is complete or if a question is complete. And then, to reduce reduntancy, I made a function that calls those two checks!
+Then I made sure you can log in as different users (Participant/Facilitator) and are send to the corresponding page. That was quite easy, as I only needed to tweak Dordje's function a bit to make it work fully!
+After I went to the more fun part, css! Specifically making modular themes. Because before I wrote static colours everywhere (which would be a pain to change them all when the theme is no longer 'underwater'). So I made a css data-theme, where I painstakingly put all the used colours and sorted them based on where they are used. So it's easier to maintain.
+Then to test this, I made a valentine-coded theme, with pretty pinks and all. But it only half-worked. And that's really strange because I just forgot to put the theme in the index.html. So it strange the theme was applied at all. I also made 2 files that each contain specific theming css.
+For ease of use. In there I also managed to modularize the gifs background! Which I'm happy with. After all that I added documentation to the README.md with clear steps on how to change the theme if you wanted.
+  </p>
   <h3>Day 3 - 14/05/2025</h3>
   <p></p>
   <h3>Day 4 - 15/05/2025</h3>
