@@ -1,4 +1,4 @@
-<section class="main-section main-section-week current-week">
+<section class="main-section main-section-week">
   <h2>Week 6</h2>
   <h3>Day 1 - 19/05/2025</h3>
   <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w6d1_bugs.png" alt="w6d1_bugs"></span>
@@ -13,14 +13,38 @@
     I also had a meeting with Ann Koolen and Thomas Swolfs, just to see how the internship has been going and if they can recruit me. Then I also did some dry-runs with Dordje to get ready for our presentation tomorrow!
   </p>
   <h3>Day 3 - 21/05/2025</h3>
-  <p></p>
+  <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w6d4_evaluation.png" alt="w6d4_evaluation"></span>
+Today I started on the Evaluation page, initially this was Dordje's issue (todays picture is that) that he worked on while he was busy with deployment. But I had nothing really to do as the rest is bound to the deployed users and all. Thankfully he only just started an only made the link to the page, and declared the page in our manifest. But first I needed to fix the link that Dordje made, as it didn't show the evaluation page per team (just globally, which isn't what we should have).
+    Then I first made a static version just to get into the flow and already design everything. For that I drew a scheme on some paper to better visualize it, that worked well as then it was just a question of setting the correct css classes everywhere. I got quite used to SAPUI5, and used lots of VBox and HBoxes to make sure everything is outlined well. </p>
+  Then I just had to do the bindings, thankfully I could copy most from the other code I wrote, as they needed the bindings for /hackathon and /teams. That was easy enough. The only problem was getting the questions and answers.
+  It's a nested structure, so I didn't really know how to get there. Because I needed to go from Hackathon->Challenges->Questions&Answers. And the same for Teams->Users. At least I have the binding for a team. But it was already getting late, so I decided to stop on just having Team shown.
   <h3>Day 4 - 22/05/2025</h3>
-  <p></p>
+  <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w6d3_evaluation.png" alt="w6d3_evaluation"></span>
+Today I started on working out the issues on getting the nested classes. I somehow couldn't get the hackathonId needed to fetch that whole nested structure of Hackathon->Challenges->Questions&Answers. So I switched on finishing the Teams->Users, and did some edits to format the user bubbles better.
+    Then I finally found that I could actually easily fetch the Hackathon->Challenges->Questions&Answers via a complicated $expand when I get the hackathon. And now I had to do some tweaks to the css/visuals. Just to make everything flow together.
+    But this structure was getting really big. So I started trying to make the challenges collapsable. First via SAPUI5 functionalities. But that didn't work. So I switched to use the collapse function I use in this blog! I just needed to tweak it a bit so it fit into my controller.ts and that worked!!
+    Then I took a smaller issue of 'accept answer as correct if the answer is marked incorrect' and in reverse. For this I used the same PATCH structure I wrote in the attendance controller. So that was done without too much issues. But then, on each change/toggle it changed the order in which the answers were shown. Which is of course bad, because I first show a list of questions and then a list of answers. So how will the enduser know what answer belongs where if the order isn't fixed?
+    Apparently this has an easy fix, which is setting in the xml a sorter like this
+    ```items="{
+    path: 'challengemodel>answers',
+    sorter: {
+    path: 'completedTime',
+    descending: false
+    }
+    }"
+```
+    Then I just needed to make everything i18n, add some final css changes (because attendance colors were blending into the background) and do some code cleanup like deleting comments. And then the page was finally done!
+  </p>
   <h3>Day 5 - 23/05/2025</h3>
-  <p></p>
+  <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w6d3_evaluation.png" alt="w6d3_evaluation"></span>
+
+    Today, tragedy struck, my laptop broke. And I could barely work as it just shut down every 15 minutes. So I got busy with other things we needed to do. But first we had our second UX test to do! We did this with Grisja, a Recruitment Officer that's very design oriented and has been in many hackathons organized at Flexso. We got lots of feedback and even went overtime and talked for about an hour. Then I struggled with my laptop, and after noon it was already time for our weekly demo meeting.
+    There we discussed with Stijn&Eva, our coaches, what we did, the feedback we got from the UX test and what we will implement. I then made a checklist of everything discussed that we definatly needed to do and put it in an issue. Dordje is still having trouble with deployment. I can't really help him as only he has the BTP account for this, I try just playing a rubber duckie and help ask around for people knowledgable. Because he's already a week in and deployment is still not finished.. So then we had a meeting with Tom, someone knowledgable on CIS to help with deployment, and he gave lots of tips.
+    Then I worked on our weekly report until my computer shut down again. And then went home as I can't work like this. In the weekend I was then busy with fixing my laptop. And sunday it was finally done! So then I made our Final leaderboard page (static), to make up for doing little on friday.
+  </p>
 </section>
 
-<section class="main-section main-section-week">
+<section class="main-section main-section-week current-week">
   <h2>Week 7</h2>
   <h3>Day 1 - 26/05/2025</h3>
   <p></p>
@@ -29,9 +53,9 @@
   <h3>Day 3 - 28/05/2025</h3>
   <p></p>
   <h3>Day 4 - 29/05/2025</h3>
-  <p></p>
+  <p>Feast of the Ascension, no work!</p>
   <h3>Day 5 - 30/05/2025</h3>
-  <p></p>
+  <p>Bridge Day, no work!</p>
 </section>
 
 <section class="main-section main-section-week">
