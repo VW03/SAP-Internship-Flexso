@@ -25,14 +25,14 @@ Today I started on working out the issues on getting the nested classes. I someh
     But this structure was getting really big. So I started trying to make the challenges collapsable. First via SAPUI5 functionalities. But that didn't work. So I switched to use the collapse function I use in this blog! I just needed to tweak it a bit so it fit into my controller.ts and that worked!!
     Then I took a smaller issue of 'accept answer as correct if the answer is marked incorrect' and in reverse. For this I used the same PATCH structure I wrote in the attendance controller. So that was done without too much issues. But then, on each change/toggle it changed the order in which the answers were shown. Which is of course bad, because I first show a list of questions and then a list of answers. So how will the enduser know what answer belongs where if the order isn't fixed?
     Apparently this has an easy fix, which is setting in the xml a sorter like this
-    ```items="{
+    <code>items="{
     path: 'challengemodel>answers',
     sorter: {
     path: 'completedTime',
     descending: false
     }
-    }"
-```
+    }"</code>
+
     Then I just needed to make everything i18n, add some final css changes (because attendance colors were blending into the background) and do some code cleanup like deleting comments. And then the page was finally done!
   </p>
   <h3>Day 5 - 23/05/2025</h3>
@@ -60,14 +60,51 @@ Today I started on working out the issues on getting the nested classes. I someh
       Then I got stuck on showing the image in my FormattedText, even with telling it to directly show the HTML, it didn't work. I tried a just a core:HTML but that broke all of the stylings and wasn't pretty. It also somehow appended each challenge instead of replacing it. So then I went to the RichTextEditor, my last resort, And it showed the image! And normally replaced the challenge descriptions with good stylings! I then hid the edit bar above and made the whole RichTextEditor not editable. Then I struggled a bit with making sure it's displaying correctly in the leftPane, and I made it scrollable which wasn't too much trooble.
       Then I removed the GIFs background and changed some colors on the hackathon page. I also added a cute star animation on challenge completion!
       Then I added a new parameter in the question entity, called 'limitNr' to correctly have multiple limit options to set on a question (so how many times you can try to resubmit). Here I had some trouble centering the number next to the input field. As it was either floating or sinking, but with some more HBox and VBoxes it worked out! I then reworked the addPoints() function so that it only triggers onSubmit AND when the answer was false before, so you can't keep getting points. I also made a simple enabled="{= ${viewModel>limitNr} > 0 }" to disable the submit and input fields when its 0.
-      I also of course wrote the functionally to do limitNr-1 when you submit! Then I finally found the
+      I also of course wrote the functionally to do limitNr-1 when you submit! Then I also made sure you can't have multiple active hackathons at once. And that the participants only see the active hackathon. After getting the whole checklist done, I went home. Then, in the evening, I also tried helping Dordje with deployment. And I managed to find that it's searching for views that don't exist and printed them.
   </p>
   <h3>Day 3 - 28/05/2025</h3>
-  <p></p>
+  <p>
+    Today I fixed the warning we've lately been getting on deploying the postgres docker (locally). Then I made reservations to do a dry-run for our end presentation in the White Room. That was a bit troublesome, as I don't have the rights to booking Cronos rooms (only Flexso rooms). So after talking to many people I finally secured a spot! Then we had our demo with Stijn, and got some feedback and pointers that I then put together into another checklist. I will work that out first before starting the notification queue.
+But I also did some research on that queue, as it has to work on deployment too. But, the RabbitMQ (that is the SAP Event Mesh in BTP), is not aviable in our trail version.. I didn't really find other options. So I guess I'll have to do a manual queue with events via CAP instead. It will be slower, but I'll add it into the documentation so people know why I chose it!
+For this research I also got Dordje's BTP account (where the deployment happens). I don't think I'll end up using it, but it's good to have nonetheless if he has trouble with something! 
+  </p>
   <h3>Day 4 - 29/05/2025</h3>
-  <p>Feast of the Ascension, no work!</p>
+  <p>Feast of the Ascension!
+Today, to make sure the app is complete next week, I worked on that new checklist. Fixing first the display of "1 try/poging" to "1 try" or "1 poging" in the dropdown select. Then there was the star bug that showed even with false input. That was a quick fix. Then when you delete a team, the team_ID in the users wasn't deleted. So they couldn't be assigned to other teams. For this I wrote a new method that does a PATCH call!
+And then I started on the parameter questions. First I reworked the backend (yet again), and added a new entity and seeding for that entity:
+<code> entity QuestionParameters : cuid {
+  question : Association to one Questions;
+  paramType : String;
+  paramExamples : array of String;
+  paramAnswers : array of String;
+}</code> 
+</p>
   <h3>Day 5 - 30/05/2025</h3>
-  <p>Bridge Day, no work!</p>
+  <p>Bridge Day!
+  Today I continued on the parameter questions and it became hell, as getting everything and showing everything worked in the end. I first made a static version and then slowly converted that to get the data via bindings. So the frontend looks nice now and only the dynamic data has to be done.
+  I made the paramType adding functionality and that wasn't that difficult. I had some trouble making sure it, on selecting another paramType, shows the paramExamples&paramAnswers of that other paramType instead. But in the end it came down to doing a lot of .refresh().
+But then, adding or pushing onto the arrays of paramExamples and paramAnswers didn't work. It wasn't a primitive type and so it refused to do that. Then I managed to make it work, but it made each time a new entity instead of updating.
+In the end, after lots of headaches and working saturday and sunday, I did another rework of the backend and the seeded data. So it now takes a JSON 'array' that's in a string. So then I needed to refactor the frontend to first do a <code>JSON.parse(parameter.paramExamples) as string[]</code>
+and then when 'pushing' onto the list I made this looping try-catch <code>try {
+          const examples = JSON.parse(usedParameter.paramExamples) as string[];
+          const answers = JSON.parse(usedParameter.paramAnswers) as string[];
+          examples.forEach(example => {
+            if (example && !paramExamplesList.some(pe => pe.key === example)) {
+              paramExamplesList.push({ key: example, text: example });
+            }
+          });
+          answers.forEach(answer => {
+            if (answer && !paramAnswersList.some(pa => pa.key === answer)) {
+              paramAnswersList.push({ key: answer, text: answer });
+            }
+          });
+        } catch (error) {
+          MessageBox.error("Error parsing JSON")
+        }
+</code>
+Afterwards, to clear my mind a bit, I made a new, basic, welcome page; added i18n to some places; cleaned up the functionality of the whole QuestionParameters story; fixed the evaluation page that gave binding errors.
+I also made a small button to 'unpublish' an already published hackathon (so it sets the active back to preparation). For that I did some refactoring, and made helper-methods to not have dublicate code. I also added an if so when you complete the hackathon, you go to the final leaderboard (that was easy as it was just the navTo() function). And then the fixes branch was finally done!
+</p>
 </section>
 
 <section class="main-section main-section-week">
