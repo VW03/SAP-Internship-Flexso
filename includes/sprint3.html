@@ -15,9 +15,9 @@
   <h3>Day 3 - 21/05/2025</h3>
   <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w6d4_evaluation.png" alt="w6d4_evaluation"></span>
 Today started really early, we had a presentation at flexso with other internship students to present what we have. that was at 8h30, until 9h15. Then I started on the Evaluation page, initially this was Dordje's issue (todays picture is that) that he worked on while he was busy with deployment. But I had nothing really to do as the rest is bound to the deployed users and all. Thankfully he only just started an only made the link to the page, and declared the page in our manifest. But first I needed to fix the link that Dordje made, as it didn't show the evaluation page per team (just globally, which isn't what we should have).
-    Then I first made a static version just to get into the flow and already design everything. For that I drew a scheme on some paper to better visualize it, that worked well as then it was just a question of setting the correct css classes everywhere. I got quite used to SAPUI5, and used lots of VBox and HBoxes to make sure everything is outlined well. </p>
-  Then I just had to do the bindings, thankfully I could copy most from the other code I wrote, as they needed the bindings for /hackathon and /teams. That was easy enough. The only problem was getting the questions and answers.
-  It's a nested structure, so I didn't really know how to get there. Because I needed to go from Hackathon->Challenges->Questions&Answers. And the same for Teams->Users. At least I have the binding for a team. But it was already getting late, so I decided to stop on just having Team shown.
+    Then I first made a static version just to get into the flow and already design everything. For that I drew a scheme on some paper to better visualize it, that worked well as then it was just a question of setting the correct css classes everywhere. I got quite used to SAPUI5, and used lots of VBox and HBoxes to make sure everything is outlined well. 
+    Then I just had to do the bindings, thankfully I could copy most from the other code I wrote, as they needed the bindings for /hackathon and /teams. That was easy enough. The only problem was getting the questions and answers.
+  It's a nested structure, so I didn't really know how to get there. Because I needed to go from Hackathon->Challenges->Questions&Answers. And the same for Teams->Users. At least I have the binding for a team. But it was already getting late, so I decided to stop on just having Team shown.</p>
   <h3>Day 4 - 22/05/2025</h3>
   <p><span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w6d3_evaluation.png" alt="w6d3_evaluation"></span>
 Today I started on working out the issues on getting the nested classes. I somehow couldn't get the hackathonId needed to fetch that whole nested structure of Hackathon->Challenges->Questions&Answers. So I switched on finishing the Teams->Users, and did some edits to format the user bubbles better.
@@ -43,7 +43,7 @@ Today I started on working out the issues on getting the nested classes. I someh
   </p>
 </section>
 
-<section class="main-section main-section-week current-week">
+<section class="main-section main-section-week">
   <h2>Week 7</h2>
   <h3>Day 1 - 26/05/2025</h3>
   <p>
@@ -72,12 +72,16 @@ For this research I also got Dordje's BTP account (where the deployment happens)
   <p>Feast of the Ascension!
 Today, to make sure the app is complete next week, I worked on that new checklist. Fixing first the display of "1 try/poging" to "1 try" or "1 poging" in the dropdown select. Then there was the star bug that showed even with false input. That was a quick fix. Then when you delete a team, the team_ID in the users wasn't deleted. So they couldn't be assigned to other teams. For this I wrote a new method that does a PATCH call!
 And then I started on the parameter questions. First I reworked the backend (yet again), and added a new entity and seeding for that entity:
-<code> entity QuestionParameters : cuid {
-  question : Association to one Questions;
-  paramType : String;
-  paramExamples : array of String;
-  paramAnswers : array of String;
-}</code> 
+
+    <code> 
+      entity QuestionParameters : cuid {
+        question : Association to one Questions;
+        paramType : String;
+        paramExamples : array of String;
+        paramAnswers : array of String;
+      }
+    </code> 
+    
 </p>
   <h3>Day 5 - 30/05/2025</h3>
   <p>Bridge Day!
@@ -107,10 +111,12 @@ I also made a small button to 'unpublish' an already published hackathon (so it 
 </p>
 </section>
 
-<section class="main-section main-section-week">
+<section class="main-section main-section-week current-week">
   <h2>Week 8</h2>
   <h3>Day 1 - 02/06/2025</h3>
-  <p></p>
+  <p>I can't believe it's the final week! Today started well in terms of development. But we did get locked out of everything, we couldn't badge into the building. We didn't have internet (and used Dordje's hotspot). And I had no teams, and Dordje didn't even have gitlab access! (he could still push though).
+So I send an email to everyone that's related to this at Flexso. And when I arrived also spoke with Grisja about this. Thankfully they will fix it somewhere in the afternoon!
+</p>
   <h3>Day 2 - 03/06/2025</h3>
   <p></p>
   <h3>Day 3 - 04/06/2025</h3>
