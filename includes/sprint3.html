@@ -109,23 +109,34 @@ I also made a small button to 'unpublish' an already published hackathon (so it 
       <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w8d1_queue"></span>
       I can't believe it's the final week! Today started well in terms of development. But we did get locked out of everything, we couldn't badge into the building. We didn't have internet (and used Dordje's hotspot). And I had no teams, and Dordje didn't even have gitlab access! (he could still push though).
 So I send an email to everyone that's related to this at Flexso. And when I arrived also spoke with Grisja about this. Thankfully they will fix it somewhere in the afternoon!
-Then I started on implementing the queue
+Then I started on implementing the queue and had some difficulty making sure it worked, but in the end I used an 'action' set up in the backend service to then be called when I click on sending a message/notification. First I did it with a static teamID and hackathonID, just to see if it works, because my services weren't connecting properly and the notification wasn't showing in the database.
+      But for now it only works via console (backend), and now I do bind it to dynamic teamID and hackathonID. So it should normally show per team. But that is for tomorrow as it is late. We also had a small sprint meeting with Eva, where we pitched our plan and she agreed and wished us luck!
 </p>
   <h3>Day 2 - 03/06/2025</h3>
-  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d2_queue.png" alt="w7d5_param"></span>
-
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d2_queue.png" alt="w8d2_queue"></span>
+      Today I continued working on the queue, and now it's correctly shown in the frontend console, for the team. So now I just have to make the frontend list. Here it was a bit of a struggle to make it align properly with the 2 'previous'/'next' buttons. Then I just had to make it sort all the notifications per date, and format the date/time so it's shown pretty and the little MessagePopover was done!
+      Then I did the border, that glows around the screen when you get a new notification. That wasn't very difficult as I first just made a red glowing border around the screen and then made sure it's called in my notification polling system.  After I just did a little switch-case for the 3 types (green - good, red - bad and blue - custom) and that was done too.
+      Then I cleaned up the code as I did quite some experimenting to do the notifications. After I wanted something to relax a bit, so I made a mermaid schema of our backend classes and the relationships there. I think it will help a lot for the future developers.
+      Then I went home and did a big rework because a big bug came up. Our 'teams' were actually playing the same hackathon instead of per team. That was very headache-inducing and difficult to fix as I didn't want to do too much changes to our backend. Because then all of the Preparation fase CRUD had to be reworked too!
+      I did that until pretty late, but now at least saving works again. And now correctly per team a different answer.
   </p>
   <h3>Day 3 - 04/06/2025</h3>
-  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w7d5_param"></span>
-
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d3.png" alt="w8d3"></span>
+    Today I started on making the limitNr unique per team too. And to not do a big rework of the questions - I put it into the teamAnswer with the name currentLimitNr. This way it's unique per team but doesn't change the other CRUDs we have. Then I got binding/refresh problems again. I scrapped a lot of code and broke it. I then deleted all of the functions and just started anew. Because reworking everything to now be unique per team was more complicated than starting from scratch.
+      I did that until the workday ended. And when I got home, I started on doing the backend for the HackathonEvent notifications (so not manual ones I did at the start of the week, but these ones trigger on certain 'completions'). But then I was way too tired and just did some merges and stopped.
   </p>
   <h3>Day 4 - 05/06/2025</h3>
-  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w7d5_param"></span>
-
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d4_queue.png" alt="w8d4_queue"></span>
+    This second type of notification I did not implement with an 'action' but an 'event' in the service. And that was not so difficult as all the classes already exist from the manual notifications and I could even partially copy the service method for this. But then it kept sending the notification 3 times? At first I didn't understand why. And then I noticed that it just kept re-sending (3 times) the same notification.
+      And I got even more confused. Apparently it was send 3 times per each team. But these are global notifications, so that's not even necessary.
+      This coding had to be cut short as we had our dry-run to do. That we completely didn't practice. We just quickly went over everything. I did some changes to the powerpoint and after eating a bit, we rushed to the White Room. (And also set up our goodbye presents). And the presentation went bad, as expected. We went way over time (37 min) and went in too much detail.
+      I am really thankful though that we got very good feedback from our 2 Flexso coaches.
+      But now it was time to continue the global notification and now I knew where the problem was, so the fix quite simple. I just had to do some checks if the notification already exists and just put the first team as the teamID (to not change the backend structure too much).
+      Then I used pretty much the same css I did for the buttons to show the notification on the current leaderboard. And I think it's really pretty. Then I continued working until almost 19:00 at the office to make sure the final leaderboard has only teams that completed this hackathon. And of course that you're redirected there when you finish the hackathon.
   </p>
   <h3>Day 5 - 06/06/2025</h3>
-  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w7d5_param"></span>
-
-
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d5.png" alt="w8d5"></span>
+Today is the last day, it feels so strange. I did a few small final fixes, finished the readme with an updated mermaid diagram. Then I wrote the 'overdrachtsdocument' that contains everything a developer could need. (Installation intstructions, code structure and where everything is,.. ).
+      Then I went through all of our code and removed imports,comments, added extra comments to explain some things/choices. Then found a bug that on the special/random questions the description (so the question) changed on each refresh. We stayed until late again finishing everything up, deployment doesn't seem to be completly working also.. But we are done, and I'm happy with what I could do in these short 8 weeks.
   </p>
 </section>
