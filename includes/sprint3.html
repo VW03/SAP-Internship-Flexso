@@ -47,6 +47,7 @@ Today I started on working out the issues on getting the nested classes. I someh
   <h2>Week 7</h2>
   <h3>Day 1 - 26/05/2025</h3>
   <p>
+      <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/login.gif" alt="login.gif"></span>
       Today I started with Dordje another meeting (like the 5th one on deployment) in the morning with someone else at Flexso to help. Dordje says it was a big help, so that's good. But that deployment is taking so long, and we still have a lot to do.. and I'm doing everything (functionality) alone. I think I'll have to do overtime to make up for Dordje being stuck with deployment. The problem is that some issues are to be done after deployment is set up...
       Then I did a mini standup with Dordje to plan the week, today I finish the final leader board + the new entity 'HackathonTeams' so that different teams can go on `same` hackathon + counting of points (when you correctly answer a question it goes to your rank). Tomorrow I will finish all the feedback and todo's about our code. And wednesday I will make a RabbitMQ service for our notifications. Dordje will finish deployment today and tomorrow start on the questions page, then wednesday do the login screen other deployment related touch ups.
       So then I started on finishing the final leaderboard. So first I made it dynamic, with the teams/RankedTeams binding (I sort them in backend so nobody can cheat). Then I started on the rework to contain HackathonTeams between Teams and Hackathons(previously Themes - still Themes in Frontend). That broke every binding, of course. So I spend the rest of the afternoon on fixing the bindings (adding that HackathonTeams usually). Then it was already getting late (like 18h) so I went home after making sure everything works again and doesn't show any errors.
@@ -55,6 +56,7 @@ Today I started on working out the issues on getting the nested classes. I someh
 
   <h3>Day 2 - 27/05/2025</h3>
   <p>
+      <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w7d2.png" alt="w7d2"></span>
       Today I quickly finished the points, that went quite fast thankfully and my issue was merged! I also tested everything out so that it really does show the hackathon per team. And that works, the testing is quite sketchy though because deployment isn't done. I used static id's to simulate the logged in user. Then I also merged the issue Dordje worked on the side (better visuals for his progress page) but I had to do some changes as it broke because of the HackathonTeams and his css syntax had too much newlines.
       Then I started on the big checklist. First I tackled my 1004 lines styles.css file. I really didn't think it would get this big.. So I simply split it up per page (I already wrote titles everywhere, so that was easy). I also discovered some dublicates, so I fixed that. And now, its only 38 lines!! Much better. Then I did the 'create hackathon' button on the dashboard. As it was blue on blue and small, so our UX tester didn't see it. Here I had some trouble overwriting the css of SAPUI5. But in the end, with 'Emphasized' instead of 'NoStyles' it worked + with some css tweaks. This is really strange, but I'll take it.
       Then I got stuck on showing the image in my FormattedText, even with telling it to directly show the HTML, it didn't work. I tried a just a core:HTML but that broke all of the stylings and wasn't pretty. It also somehow appended each challenge instead of replacing it. So then I went to the RichTextEditor, my last resort, And it showed the image! And normally replaced the challenge descriptions with good stylings! I then hid the edit bar above and made the whole RichTextEditor not editable. Then I struggled a bit with making sure it's displaying correctly in the leftPane, and I made it scrollable which wasn't too much trooble.
@@ -64,12 +66,15 @@ Today I started on working out the issues on getting the nested classes. I someh
   </p>
   <h3>Day 3 - 28/05/2025</h3>
   <p>
+      <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w7d3_points.png" alt="w7d3_points"></span>
     Today I fixed the warning we've lately been getting on deploying the postgres docker (locally). Then I made reservations to do a dry-run for our end presentation in the White Room. That was a bit troublesome, as I don't have the rights to booking Cronos rooms (only Flexso rooms). So after talking to many people I finally secured a spot! Then we had our demo with Stijn, and got some feedback and pointers that I then put together into another checklist. I will work that out first before starting the notification queue.
-But I also did some research on that queue, as it has to work on deployment too. But, the RabbitMQ (that is the SAP Event Mesh in BTP), is not aviable in our trail version.. I didn't really find other options. So I guess I'll have to do a manual queue with events via CAP instead. It will be slower, but I'll add it into the documentation so people know why I chose it!
-For this research I also got Dordje's BTP account (where the deployment happens). I don't think I'll end up using it, but it's good to have nonetheless if he has trouble with something! 
+But I also did some research on that queue, as it has to work on deployment too. But, the RabbitMQ (that is the SAP Event Mesh in BTP), is not aviable in our trial version.. I didn't really find other options. So I guess I'll have to do a manual queue with events via CAP instead. It will be slower, but I'll add it into the documentation so people know why I chose it!
+For this research I also got Dordje's BTP account (where the deployment happens). I don't think I'll end up using it, but it's good to have nonetheless if he has trouble with something! Then we also had a meeting to help with setting up Postgres in Cloud Foundry.
   </p>
   <h3>Day 4 - 29/05/2025</h3>
-  <p>Feast of the Ascension!
+  <p>
+      <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w7d4_param.png" alt="w7d4_param"></span>
+      Feast of the Ascension!
 Today, to make sure the app is complete next week, I worked on that new checklist. Fixing first the display of "1 try/poging" to "1 try" or "1 poging" in the dropdown select. Then there was the star bug that showed even with false input. That was a quick fix. Then when you delete a team, the team_ID in the users wasn't deleted. So they couldn't be assigned to other teams. For this I wrote a new method that does a PATCH call!
 And then I started on the parameter questions. First I reworked the backend (yet again), and added a new entity and seeding for that entity:
 
@@ -84,28 +89,14 @@ And then I started on the parameter questions. First I reworked the backend (yet
     
 </p>
   <h3>Day 5 - 30/05/2025</h3>
-  <p>Bridge Day!
+  <p>
+      <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w7d5_param.png" alt="w7d5_param"></span>
+      Bridge Day!
   Today I continued on the parameter questions and it became hell, as getting everything and showing everything worked in the end. I first made a static version and then slowly converted that to get the data via bindings. So the frontend looks nice now and only the dynamic data has to be done.
   I made the paramType adding functionality and that wasn't that difficult. I had some trouble making sure it, on selecting another paramType, shows the paramExamples&paramAnswers of that other paramType instead. But in the end it came down to doing a lot of .refresh().
 But then, adding or pushing onto the arrays of paramExamples and paramAnswers didn't work. It wasn't a primitive type and so it refused to do that. Then I managed to make it work, but it made each time a new entity instead of updating.
 In the end, after lots of headaches and working saturday and sunday, I did another rework of the backend and the seeded data. So it now takes a JSON 'array' that's in a string. So then I needed to refactor the frontend to first do a <code>JSON.parse(parameter.paramExamples) as string[]</code>
-and then when 'pushing' onto the list I made this looping try-catch <code>try {
-          const examples = JSON.parse(usedParameter.paramExamples) as string[];
-          const answers = JSON.parse(usedParameter.paramAnswers) as string[];
-          examples.forEach(example => {
-            if (example && !paramExamplesList.some(pe => pe.key === example)) {
-              paramExamplesList.push({ key: example, text: example });
-            }
-          });
-          answers.forEach(answer => {
-            if (answer && !paramAnswersList.some(pa => pa.key === answer)) {
-              paramAnswersList.push({ key: answer, text: answer });
-            }
-          });
-        } catch (error) {
-          MessageBox.error("Error parsing JSON")
-        }
-</code>
+and then when 'pushing' onto the list I made this looping try-catch (see image).
 Afterwards, to clear my mind a bit, I made a new, basic, welcome page; added i18n to some places; cleaned up the functionality of the whole QuestionParameters story; fixed the evaluation page that gave binding errors.
 I also made a small button to 'unpublish' an already published hackathon (so it sets the active back to preparation). For that I did some refactoring, and made helper-methods to not have dublicate code. I also added an if so when you complete the hackathon, you go to the final leaderboard (that was easy as it was just the navTo() function). And then the fixes branch was finally done!
 </p>
@@ -114,15 +105,27 @@ I also made a small button to 'unpublish' an already published hackathon (so it 
 <section class="main-section main-section-week current-week">
   <h2>Week 8</h2>
   <h3>Day 1 - 02/06/2025</h3>
-  <p>I can't believe it's the final week! Today started well in terms of development. But we did get locked out of everything, we couldn't badge into the building. We didn't have internet (and used Dordje's hotspot). And I had no teams, and Dordje didn't even have gitlab access! (he could still push though).
+  <p>
+      <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w8d1_queue"></span>
+      I can't believe it's the final week! Today started well in terms of development. But we did get locked out of everything, we couldn't badge into the building. We didn't have internet (and used Dordje's hotspot). And I had no teams, and Dordje didn't even have gitlab access! (he could still push though).
 So I send an email to everyone that's related to this at Flexso. And when I arrived also spoke with Grisja about this. Thankfully they will fix it somewhere in the afternoon!
+Then I started on implementing the queue
 </p>
   <h3>Day 2 - 03/06/2025</h3>
-  <p></p>
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d2_queue.png" alt="w7d5_param"></span>
+
+  </p>
   <h3>Day 3 - 04/06/2025</h3>
-  <p></p>
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w7d5_param"></span>
+
+  </p>
   <h3>Day 4 - 05/06/2025</h3>
-  <p></p>
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w7d5_param"></span>
+
+  </p>
   <h3>Day 5 - 06/06/2025</h3>
-  <p></p>
+  <p> <span class="image-container"><img onclick="showPopup(this)" class="user-picture picture-article" src="/SAP-Internship-Flexso/images/w8d1_queue.png" alt="w7d5_param"></span>
+
+
+  </p>
 </section>
